@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie Prediction</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="mainpage.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Movie Prediction</h1>
+		<<form action="predict" method="post">>
+			<label for="movie-name">Movie Name:</label>
+			<span style="color:red;font-size:small">holdup, the model is case sensitive</span>
+			<input type="text" id="movie-name" name="movie-name">
+
+			<label for="num-movies">Number of Movies:</label>
+			<input type="number" id="num-movies" name="num-movies">
+
+			<button id="predict-btn">Predict</button>
+		</form>
+
+		<div class="output-container">
+			<h2>Output:</h2>
+			<ul id="output-list">
+			<script>
+        		var x = {{ x|tojson }};
+        		var outputBox = document.getElementById("output_list");
+        		for (var i = 0; i < x.length; i++) {
+    			outputBox.innerHTML += x[i] + "<br>";
+        		}
+        	</script>
+			</ul>
+		</div>
+	</div>
+
+	
+</body>
+</html>
